@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as s,b as n}from"./index.dd49c395.js";const _={},c={class:"testOne"},o=n("h1",null,"This is an testOne page",-1),a=[o];function r(i,d){return t(),s("div",c,a)}const f=e(_,[["render",r]]);export{f as default};
