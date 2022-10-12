@@ -65,7 +65,7 @@ export default defineComponent({
         return false;
       }
       if (isNaN(parseInt(age.value))) {
-        alert("연령은 숫자를 입력해주세요.");
+        alert("나이는 숫자로 입력해주세요.");
         return false;
       }
       return true;

@@ -7,7 +7,9 @@
     <test-one-comp v-if="step === 4" />
     <view-store-data />
 
-    <button class="nextButton" @click="nextStep" v-if="step !== 1">다음</button>
+    <button class="nextButton" @click="nextStep" v-if="showNextButton">
+      다음
+    </button>
   </div>
 </template>
 
@@ -35,11 +37,13 @@ export default defineComponent({
     const store = useStore();
     const step = computed(() => store.state.step);
 
+    const showNextButton = computed(() => step.value !== 1 && step.value !== 4);
+
     const nextStep = () => {
       store.commit("upStep");
     };
 
-    return { step, nextStep };
+    return { step, nextStep, showNextButton };
   },
 });
 </script>
