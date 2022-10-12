@@ -4,6 +4,7 @@ import createPersistedState from "vuex-persistedstate";
 export const store = createStore({
   plugins: [createPersistedState()],
   state: {
+    step: 0,
     gender: "",
     age: "",
     nickName: "",
@@ -20,6 +21,12 @@ export const store = createStore({
     },
   },
   mutations: {
+    setStep(state, value) {
+      state.step = value;
+    },
+    upStep(state) {
+      state.step = state.step + 1;
+    },
     setGender(state, value) {
       state.gender = value;
     },

@@ -1,5 +1,5 @@
 <template>
-  <div class="userInfo">
+  <div class="userInfoPage">
     <p>
       나이 :
       <input class="unerBar" v-model="age" maxlength="3" style="width: 23px" />

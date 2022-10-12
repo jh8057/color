@@ -1,6 +1,6 @@
 <template>
   <div class="testOneComp">
-    <h1>a</h1>
+    <h1>Test One page</h1>
   </div>
 </template>
 

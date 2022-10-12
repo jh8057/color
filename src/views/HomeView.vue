@@ -1,20 +1,45 @@
 <template>
   <div>
-    <introduction-comp />
+    <introduction-comp v-if="step === 0" />
+    <user-info-comp v-if="step === 1" />
+    <order-comp v-if="step === 2" />
+    <order-two-comp v-if="step === 3" />
+    <test-one-comp v-if="step === 4" />
+    <view-store-data />
 
-    <RouterLink to="/userInfo">
-      <button class="nextButton">다음</button>
-    </RouterLink>
+    <button class="nextButton" @click="nextStep" v-if="step !== 1">다음</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref } from "vue";
 import { RouterLink, RouterView } from "vue-router";
+import { useStore } from "vuex";
 import introductionComp from "@/components/introductionComp.vue";
+import OrderComp from "@/components/orderComp.vue";
+import OrderTwoComp from "@/components/orderTwoComp.vue";
+import ViewStoreData from "@/components/viewStoreData.vue";
+import TestOneComp from "@/components/testOneComp.vue";
+import UserInfoComp from "@/components/userInfoComp.vue";
 
 export default defineComponent({
-  components: { introductionComp },
-  setup() {},
+  components: {
+    introductionComp,
+    OrderComp,
+    OrderTwoComp,
+    ViewStoreData,
+    TestOneComp,
+    UserInfoComp,
+  },
+  setup() {
+    const store = useStore();
+    const step = computed(() => store.state.step);
+
+    const nextStep = () => {
+      store.commit("upStep");
+    };
+
+    return { step, nextStep };
+  },
 });
 </script>

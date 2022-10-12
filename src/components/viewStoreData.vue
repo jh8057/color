@@ -1,8 +1,8 @@
 <template>
   <div class="testStore">
     --개발확인용: 데이터 저장확인--<br />
-    {{ age }} | {{ gender }} |
-    {{ nickName }}
+    {{ age }} | {{ gender }} | {{ nickName }} | step : {{ step }}
+    <button @click="reset">처음으로</button>
   </div>
 </template>
 
@@ -17,11 +17,18 @@ export default defineComponent({
     const age = computed(() => store.getters.getAge);
     const gender = computed(() => store.state.gender);
     const nickName = computed(() => store.state.nickName);
+    const step = computed(() => store.state.step);
+
+    const reset = () => {
+      store.commit("setStep", 0);
+    };
 
     return {
       age,
       gender,
       nickName,
+      step,
+      reset,
     };
   },
 });
@@ -29,6 +36,7 @@ export default defineComponent({
 
 <style>
 .testStore {
-  margin: 40px;
+  position: absolute;
+  bottom: -80px;
 }
 </style>
