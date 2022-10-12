@@ -1,5 +1,5 @@
 <template>
-  <div class="testOne">
+  <div class="testOneComp">
     <h1>a</h1>
   </div>
 </template>
@@ -10,7 +10,7 @@ export default defineComponent({});
 </script>
 
 <style>
-.testOne {
+.testOneComp {
   margin: auto;
   text-align: center;
   align-content: center;

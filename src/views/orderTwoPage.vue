@@ -2,7 +2,7 @@
   <div>
     <order-two-comp />
 
-    <RouterLink to="/testOne">
+    <RouterLink to="/testOnePage">
       <button class="nextButton">다음</button>
     </RouterLink>
   </div>

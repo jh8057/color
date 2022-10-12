@@ -25,14 +25,14 @@ const router = createRouter({
       component: () => import("../views/orderTwoPage.vue"),
     },
     {
-      path: "/testOne",
-      name: "testOne",
-      component: () => import("../views/testOne.vue"),
+      path: "/testOnePage",
+      name: "testOnePage",
+      component: () => import("../views/testOnePage.vue"),
     },
     {
-      path: "/testTwo",
-      name: "testTwo",
-      component: () => import("../views/testTwo.vue"),
+      path: "/testTwoPage",
+      name: "testTwoPage",
+      component: () => import("../views/testTwoPage.vue"),
     },
   ],
 });
