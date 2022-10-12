@@ -1,1 +1,0 @@
-import{_ as o,i as s,o as a,c as n,j as _,k as c,e,b as r}from"./index.e2896cb4.js";const i={},d={class:"testTwoPage"},l=r("h1",null,"This is an testTwo page",-1);function u(p,f){const t=s("RouterLink");return a(),n("div",d,[l,_(t,{to:"/"},{default:c(()=>[e("Home")]),_:1}),e(" | ")])}const h=o(i,[["render",u]]);export{h as default};
