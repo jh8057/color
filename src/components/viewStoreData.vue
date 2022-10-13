@@ -1,8 +1,10 @@
 <template>
   <div class="testStore">
     --개발확인용: 데이터 저장확인--<br />
-    {{ age }} | {{ gender }} | {{ nickName }} | step : {{ step }}
+    {{ age }} | {{ gender }} | {{ nickName }} | step : {{ step }} |
+    {{ selectedAnswer }} | list :{{ answerList.length }}
     <button @click="reset">처음으로</button>
+    <button @click="resetList">reset</button>
   </div>
 </template>
 
@@ -18,9 +20,14 @@ export default defineComponent({
     const gender = computed(() => store.state.gender);
     const nickName = computed(() => store.state.nickName);
     const step = computed(() => store.state.step);
+    const selectedAnswer = computed(() => store.state.selectedAnswer);
+    const answerList = computed(() => store.state.answerList);
 
     const reset = () => {
       store.commit("setStep", 0);
+    };
+    const resetList = () => {
+      store.commit("resetList");
     };
 
     return {
@@ -29,6 +36,9 @@ export default defineComponent({
       nickName,
       step,
       reset,
+      selectedAnswer,
+      answerList,
+      resetList,
     };
   },
 });

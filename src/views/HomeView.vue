@@ -5,7 +5,7 @@
     <order-comp v-if="step === 2" />
     <order-two-comp v-if="step === 3" />
     <test-one-comp v-if="step === 4" />
-    <view-store-data />
+    <view-store-data v-if="step !== 4" />
 
     <button class="nextButton" @click="nextStep" v-if="showNextButton">
       다음

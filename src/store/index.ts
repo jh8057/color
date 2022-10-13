@@ -1,6 +1,6 @@
 import { createStore } from "vuex";
 import createPersistedState from "vuex-persistedstate";
-
+import answerJson from "@/data/answer.json";
 export const store = createStore({
   plugins: [createPersistedState()],
   state: {
@@ -8,6 +8,9 @@ export const store = createStore({
     gender: "",
     age: "",
     nickName: "",
+    answerList: answerJson.answerList,
+    selectedAnswer: {},
+    finalResult: [],
   },
   getters: {
     getGender(state) {
@@ -18,6 +21,9 @@ export const store = createStore({
     },
     getNickName(state) {
       return state.nickName;
+    },
+    getAnswerListLength(state) {
+      return state.answerList.length;
     },
   },
   mutations: {
@@ -36,5 +42,25 @@ export const store = createStore({
     setNickName(state, value) {
       state.nickName = value;
     },
+    setFinalResult(state, value) {
+      state.finalResult = value;
+    },
+    resetState(state) {
+      state.age = "";
+      state.gender = "";
+      state.step = 0;
+      state.nickName = "";
+      state.answerList = answerJson.answerList;
+    },
+    resetList(state) {
+      state.answerList = answerJson.answerList;
+    },
+    popAnswer(state) {
+      let random = Math.floor(Math.random() * state.answerList.length);
+      state.selectedAnswer = state.answerList[random];
+      //삭제
+      state.answerList.splice(random, 1);
+    },
   },
+  actions: {},
 });
