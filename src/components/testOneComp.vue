@@ -85,7 +85,7 @@ export default defineComponent({
     };
 
     const imgSrc = computed(() => {
-      return `%PUBLIC_URL%/answer/${num}.png`;
+      return process.env.PUBLIC_URL + `/answer/${num}.png`;
     });
     return {
       selected,
