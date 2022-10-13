@@ -3,7 +3,7 @@
     <main v-if="question" class="Question">
       <div class="Question__center">
         <h3>색상은 {{ one }}인가요 {{ two }}인가요?</h3>
-        <img :src="`/answer/${num}.png`" />
+        <img :src="imgSrc" />
         <section class="selectSection">
           <div class="selectSection__item">
             <label for="select1">{{ one }}</label>
@@ -83,6 +83,10 @@ export default defineComponent({
     const showResult = () => {
       showFin.value = showFin.value ? false : true;
     };
+
+    const imgSrc = computed(() => {
+      return `%PUBLIC_URL%/answer/${num}.png`;
+    });
     return {
       selected,
       question,
@@ -101,6 +105,7 @@ export default defineComponent({
       showFin,
       saveFinal,
       finData,
+      imgSrc,
     };
   },
   mounted() {
