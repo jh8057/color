@@ -1,0 +1,1 @@
+import{d as t,m as s,V as o,_ as n,i as a,o as c,c as _,j as p,b as r}from"./index.b0200257.js";const i=t({components:{testOneComp:s,ViewStoreData:o},setup(){}});const d={class:"testOnePage"},m=r("h1",null,"This is an testOne page",-1);function l(u,f,g,h,O,v){const e=a("test-one-comp");return c(),_("div",d,[m,p(e)])}const V=n(i,[["render",l]]);export{V as default};
