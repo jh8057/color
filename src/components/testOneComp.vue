@@ -65,8 +65,10 @@ export default defineComponent({
     const len = computed(() => store.getters.getAnswerListLength);
     const finData = computed(() => store.state.finalResult);
 
-    const doSelect = () => {
-      store.commit("popAnswer");
+    const doSelect = async () => {
+      let result = await store.commit("popAnswer");
+      if(result) return true
+      return true
     };
 
     const resetList = () => {
@@ -123,12 +125,11 @@ export default defineComponent({
       this.question = false;
       if (this.len > 0) setTimeout(this.showQuestion, 1000);
     },
-    showQuestion() {
+    async showQuestion() {
       // 16개중 랜덤으로 하나를 뽑아야 된다.
       // 쓰고 다시 나오면 안되므로 버려야된다.
-      this.doSelect();
-      
-      this.question = true;
+      let result = await this.doSelect();
+      if(result) this.question = true;
       setTimeout(this.saveResult, 3000);
     },
     saveResult() {
