@@ -11,6 +11,7 @@ export const store = createStore({
     answerList: answerJson.answerList,
     selectedAnswer: {},
     finalResult: [],
+    testOneEnd: false,
   },
   getters: {
     getGender(state) {
@@ -51,15 +52,25 @@ export const store = createStore({
       state.step = 0;
       state.nickName = "";
       state.answerList = answerJson.answerList;
+      state.testOneEnd = false;
+      state.selectedAnswer = {};
+      state.finalResult = [];
     },
     resetList(state) {
       state.answerList = answerJson.answerList;
+      state.selectedAnswer = {};
+      state.finalResult = [];
+      state.testOneEnd = false;
     },
     popAnswer(state) {
       let random = Math.floor(Math.random() * state.answerList.length);
       state.selectedAnswer = state.answerList[random];
+      console.log("selected", state.answerList[random]);
       //삭제
       state.answerList.splice(random, 1);
+    },
+    setTestOneEnd(state, value) {
+      state.testOneEnd = value;
     },
   },
   actions: {},
