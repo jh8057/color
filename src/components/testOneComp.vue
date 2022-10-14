@@ -3,7 +3,7 @@
     <main v-if="question" class="Question">
       <div class="Question__center">
         <h3>색상은 {{ one }}인가요 {{ two }}인가요?</h3>
-        <img :src="`https://jh8057.github.io/colorProject/answer/${num}.png`" />
+        <img :src="`/colorProject/answer/${num}.png`" />
         <section class="selectSection">
           <div class="selectSection__item">
             <label for="select1">{{ one }}</label>
