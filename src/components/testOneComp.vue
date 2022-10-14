@@ -128,7 +128,7 @@ export default defineComponent({
       // 쓰고 다시 나오면 안되므로 버려야된다.
       this.doSelect();
 
-      setTimeout(this.saveResult, 1000);
+      setTimeout(this.saveResult, 3000);
     },
     saveResult() {
       let result = {
