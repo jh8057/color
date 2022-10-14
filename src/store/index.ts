@@ -12,6 +12,9 @@ export const store = createStore({
     selectedAnswer: {},
     finalResult: [],
     testOneEnd: false,
+    totalArr: answerJson.total,
+    answerArr: answerJson.answer,
+    selectedArr: [] as Array<number>,
   },
   getters: {
     getGender(state) {
@@ -25,6 +28,9 @@ export const store = createStore({
     },
     getAnswerListLength(state) {
       return state.answerList.length;
+    },
+    getTotalArrLength(state) {
+      return state.totalArr.length;
     },
   },
   mutations: {
@@ -69,6 +75,25 @@ export const store = createStore({
       console.log("selected", state.answerList[random]);
       //삭제
       state.answerList.splice(random, 1);
+    },
+
+    resetpop(state) {
+      state.totalArr = answerJson.total;
+      state.answerArr = answerJson.answer;
+      state.selectedArr = [] as Array<number>;
+    },
+    popArr(state) {
+      console.log("pop");
+      state.selectedArr = [];
+      for (let i = 0; i < 3; i++) {
+        let random = Math.floor(Math.random() * state.totalArr.length);
+        state.selectedArr.push(state.totalArr[random]);
+        state.totalArr.splice(random, 1);
+      }
+
+      let random = Math.floor(Math.random() * state.answerArr.length);
+      state.selectedArr.push(state.answerArr[random]);
+      state.answerArr.splice(random, 1);
     },
     setTestOneEnd(state, value) {
       state.testOneEnd = value;
