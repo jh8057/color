@@ -10,6 +10,7 @@
     <button class="nextButton" @click="nextStep" v-if="showNextButton">
       다음
     </button>
+    <button @click="reset">reset</button>
   </div>
 </template>
 
@@ -43,7 +44,11 @@ export default defineComponent({
       store.commit("upStep");
     };
 
-    return { step, nextStep, showNextButton };
+    const reset = () => {
+      localStorage.removeItem("vuex");
+    };
+
+    return { step, nextStep, showNextButton, reset };
   },
 });
 </script>

@@ -149,7 +149,7 @@ export default defineComponent({
     },
     async showQuestion() {
       this.question = true;
-      setTimeout(this.saveResult, 1000);
+      setTimeout(this.saveResult, 3000);
     },
     saveResult() {
       let result = {
