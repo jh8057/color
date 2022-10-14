@@ -46,6 +46,7 @@ export default defineComponent({
 
     const reset = () => {
       localStorage.removeItem("vuex");
+      location.reload();
     };
 
     return { step, nextStep, showNextButton, reset };

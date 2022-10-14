@@ -58,6 +58,7 @@ export const store = createStore({
     },
     resetList(state) {
       state.answerList = answerJson.answerList;
+      console.log("a", answerJson.answerList);
       state.selectedAnswer = {};
       state.finalResult = [];
       state.testOneEnd = false;
