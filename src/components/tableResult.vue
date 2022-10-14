@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(r, index) in result" :key="index">
+      <tr v-for="(r, index) in result" :key="r.num">
         <td>{{ index + 1 }}</td>
         <td>{{ r.num }}</td>
         <td>{{ r.answer }}</td>
