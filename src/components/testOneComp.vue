@@ -21,17 +21,29 @@
         <img src="/center.png" class="centerPoint__img" />
       </div>
     </main>
-    <main v-show="end" class="QuestionEnd">
-      16번 끝<br />
-      임시 테스트 확인용버튼<br />
-      <button @click="resetList">다시반복</button><br />
-      <button @click="reset">페이지 처음으로</button><br />
-      <button @click="showResult">결과보기</button>
-    </main>
 
-    <article v-if="showFin" class="result">
-      <table-result :result="finalResult" />
-      **어떻게 나오게 할지는 고민을 조금 더 해봐야할 것 같습니다.
+    <article v-show="end" class="QuestionEnd">
+      <div>
+        창을 종료하지 말고 지시가 있기 전까지<br />
+        대기하여 주시기 바랍니다.<br />
+      </div>
+      <div style="margin: 30px">
+        <button @click="reset" style="font-size: 20px; padding: 20px">
+          다음</button
+        ><br />
+      </div>
+      <div>
+        <button @click="resetList">다시 한번 - 테스트용</button><br />
+        <button @click="reset">페이지 처음으로 - 테스트용</button><br />
+        <button @click="showResult">
+          결과보기(아래) - 2번 테스트 끝난 지점으로 이동
+        </button>
+      </div>
+    </article>
+
+    <article v-if="showFin" class="result" id="resultElement">
+      <p style="font-weight: bold">전문이 보이도록 세로모드로 캡쳐해주세요.</p>
+      <table-result v-model:result="finalResult" :key="finData[0]" />
     </article>
   </div>
 </template>
@@ -51,7 +63,6 @@ export default defineComponent({
     const answerList: Array<string> = [];
 
     const finalResult: Array<finalResult> = [];
-
     const store = useStore();
 
     const selectedAnswer = computed(() => store.state.selectedAnswer);
@@ -69,10 +80,7 @@ export default defineComponent({
     });
 
     const doSelect = async () => {
-      console.log("1", num.value);
       store.commit("popAnswer");
-      console.log("2", num.value);
-      // if(result) return true
       return true;
     };
 
@@ -175,7 +183,8 @@ export default defineComponent({
   align-content: center;
 }
 .breakTime,
-.Question {
+.Question,
+.QuestionEnd {
   width: 100%;
   height: 100%;
 }
@@ -202,6 +211,16 @@ img {
   flex-direction: column;
   gap: 20px;
 }
+
+.QuestionEnd {
+  margin-top: 30vh;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .centerPoint__img {
   width: 30px;
   height: 30px;
