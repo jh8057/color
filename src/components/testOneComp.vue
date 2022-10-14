@@ -28,6 +28,7 @@
         <img src="/center.png" class="centerPoint__img" />
       </div>
     </main>
+
     <article v-if="showFin" class="result">
       <table-result :result="finalResult" />
       **어떻게 나오게 할지는 고민을 조금 더 해봐야할 것 같습니다.
@@ -114,7 +115,8 @@ export default defineComponent({
 
     // 처음에 조준점으로 시작
     // 1초 뒤에 문제 출제
-    setTimeout(this.showQuestion, 1000);
+    // 검색 끝난 뒤 다시 실행하면 안됨
+    if (this.len > 0) setTimeout(this.showQuestion, 1000);
   },
   methods: {
     showCenterPoint() {
@@ -122,12 +124,11 @@ export default defineComponent({
       if (this.len > 0) setTimeout(this.showQuestion, 1000);
     },
     showQuestion() {
-      this.question = true;
-
       // 16개중 랜덤으로 하나를 뽑아야 된다.
       // 쓰고 다시 나오면 안되므로 버려야된다.
       this.doSelect();
-
+      
+      this.question = true;
       setTimeout(this.saveResult, 3000);
     },
     saveResult() {
@@ -161,8 +162,8 @@ export default defineComponent({
 }
 
 img {
-  width: 50vh;
-  height: 50vh;
+  width: 45vh;
+  height: 45vh;
 }
 .centerPoint {
   width: 100%;
