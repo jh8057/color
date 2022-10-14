@@ -47,7 +47,9 @@ export default defineComponent({
     const store = useStore();
     const step = computed(() => store.state.step);
 
-    const showNextButton = computed(() => step.value !== 1 && step.value !== 4);
+    const showNextButton = computed(
+      () => step.value !== 1 && step.value !== 4 && step.value !== 7
+    );
 
     const nextStep = () => {
       store.commit("upStep");

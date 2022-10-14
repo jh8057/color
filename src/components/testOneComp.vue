@@ -135,9 +135,8 @@ export default defineComponent({
     if (this.finData.length > 0) this.finalResult = this.finData;
 
     // 처음에 조준점으로 시작
-    // 1초 뒤에 문제 출제
     // 검색 끝난 뒤 다시 실행하면 안됨
-    if (this.len > 0) setTimeout(this.showCenterPoint, 1000);
+    if (this.len > 0) this.showCenterPoint();
   },
   methods: {
     ...mapMutations(["setTestOneEnd"]),
