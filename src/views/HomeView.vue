@@ -5,7 +5,7 @@
     <order-comp v-if="step === 2" />
     <order-two-comp v-if="step === 3" />
     <test-one-comp v-if="step === 4" />
-    <view-store-data v-if="step !== 4" />
+    <!-- <view-store-data v-if="step !== 4" /> -->
     <order-three-comp v-if="step === 5" />
     <order-four-comp v-if="step === 6" />
     <test-two-comp v-if="step === 7" />
@@ -13,7 +13,7 @@
     <button class="nextButton" @click="nextStep" v-if="showNextButton">
       다음
     </button>
-    <!-- <button @click="reset">reset</button> -->
+    <button @click="reset">reset</button>
   </div>
 </template>
 

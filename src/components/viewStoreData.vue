@@ -1,8 +1,9 @@
 <template>
   <div class="testStore">
     --개발확인용: 데이터 저장확인--<br />
-    {{ age }} | {{ gender }} | {{ nickName }} | step : {{ step }} |
-    {{ selectedAnswer }} | list :{{ answerList.length }}
+    {{ age }} | {{ gender }} | {{ nickName }} | step : {{ step }} | list :{{
+      answerList.length
+    }}
     <button @click="reset">처음으로</button>
     <button @click="resetList">reset</button>
   </div>
