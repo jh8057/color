@@ -6,11 +6,14 @@
     <order-two-comp v-if="step === 3" />
     <test-one-comp v-if="step === 4" />
     <view-store-data v-if="step !== 4" />
+    <order-three-comp v-if="step === 5" />
+    <order-four-comp v-if="step === 6" />
+    <test-two-comp v-if="step === 7" />
 
     <button class="nextButton" @click="nextStep" v-if="showNextButton">
       다음
     </button>
-    <button @click="reset">reset</button>
+    <!-- <button @click="reset">reset</button> -->
   </div>
 </template>
 
@@ -24,6 +27,9 @@ import OrderTwoComp from "@/components/orderTwoComp.vue";
 import ViewStoreData from "@/components/viewStoreData.vue";
 import TestOneComp from "@/components/testOneComp.vue";
 import UserInfoComp from "@/components/userInfoComp.vue";
+import OrderThreeComp from "../components/orderThreeComp.vue";
+import OrderFourComp from "../components/orderFourComp.vue";
+import TestTwoComp from "../components/testTwoComp.vue";
 
 export default defineComponent({
   components: {
@@ -33,6 +39,9 @@ export default defineComponent({
     ViewStoreData,
     TestOneComp,
     UserInfoComp,
+    OrderThreeComp,
+    OrderFourComp,
+    TestTwoComp,
   },
   setup() {
     const store = useStore();

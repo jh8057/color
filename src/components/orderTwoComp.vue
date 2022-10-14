@@ -10,7 +10,7 @@
     </p>
     <div>
       예시)<br />
-      <img src="/sample.png" style="width: 300px" />
+      <img src="/sample.png" style="width: 100%; height: 100%" />
       <br />
       피험자께서는 제시된 시각자극의 색상을 자세히 보시고 3초 내에 질문에 적합한
       번호를 클릭해주십시오.

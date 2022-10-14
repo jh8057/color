@@ -1,5 +1,7 @@
 <template>
-  <div class="testTwoComp">two</div>
+  <div class="testTwoComp">
+    <h1>두번째 테스트</h1>
+  </div>
 </template>
 
 <script lang="ts">

@@ -28,7 +28,7 @@
         대기하여 주시기 바랍니다.<br />
       </div>
       <div style="margin: 30px">
-        <button @click="reset" style="font-size: 20px; padding: 20px">
+        <button @click="goTestTwo" style="font-size: 15px; padding: 10px">
           다음</button
         ><br />
       </div>
@@ -100,9 +100,13 @@ export default defineComponent({
       showFin.value = showFin.value ? false : true;
     };
 
-    const imgSrc = computed(() => {
-      return process.env.PUBLIC_URL + `/answer/${num}.png`;
-    });
+    const goTestTwo = () => {
+      store.commit("setStep", 5);
+    };
+
+    // const imgSrc = computed(() => {
+    //   return process.env.PUBLIC_URL + `/answer/${num}.png`;
+    // });
     return {
       selected,
       question,
@@ -121,9 +125,9 @@ export default defineComponent({
       showFin,
       saveFinal,
       finData,
-      imgSrc,
       showCenter,
       end,
+      goTestTwo,
     };
   },
   mounted() {
