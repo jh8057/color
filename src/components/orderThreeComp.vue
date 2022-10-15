@@ -1,7 +1,7 @@
 <template>
   <div class="orderComp">
     <div class="orderComp__center">
-      <h1>[ 지시문 ]</h1>
+      <h2>[ 지시문 ]</h2>
       <p>
         이번 설문에서는 지금까지 여러분들이 앞에서 보았던 16개의 시각자극을
         얼마나 기억하고 있는지 알아보고자 합니다. 테스트는 사지선다로 구성되어
@@ -18,19 +18,4 @@ import { defineComponent } from "vue";
 export default defineComponent({});
 </script>
 
-<style>
-.orderComp {
-  width: 100%;
-  height: 100%;
-}
-.orderComp__center {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-}
-</style>
+<style></style>

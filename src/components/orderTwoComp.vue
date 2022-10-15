@@ -24,4 +24,8 @@ import { defineComponent } from "vue";
 export default defineComponent({});
 </script>
 
-<style></style>
+<style>
+.orderTwoComp {
+  padding: 1rem;
+}
+</style>

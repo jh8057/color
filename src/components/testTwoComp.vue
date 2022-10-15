@@ -43,7 +43,7 @@
     </article>
   </div>
   <div style="display: absolute">
-    {{ Arr }}| {{ ArrShffuled }} <button @click="resetpop">pop</button>
+    <button @click="resetpop">해당 테스트만 다시하기</button>
   </div>
 </template>
 
@@ -111,6 +111,7 @@ export default defineComponent({
     };
     const resetpop = () => {
       store.commit("resetpop");
+      location.reload();
     };
 
     const goNextStep = () => {
