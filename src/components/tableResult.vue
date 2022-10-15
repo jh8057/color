@@ -5,7 +5,7 @@
       <table class="tableData">
         <thead>
           <tr>
-            <th scope="col">시행순서</th>
+            <th scope="col">순서</th>
             <th scope="col">자극물</th>
             <th scope="col">선택정답</th>
             <th scope="col">실제정답</th>
@@ -26,7 +26,7 @@
       <table class="tableData">
         <thead>
           <tr>
-            <th scope="col">시행순서</th>
+            <th scope="col">순서</th>
             <th scope="col">자극물</th>
             <th scope="col">방해자극</th>
             <th scope="col">배치순서</th>
@@ -56,10 +56,7 @@ export default {
 };
 </script>
 
-<style scoped>
-* {
-  padding: 0;
-}
+<style>
 .tableData {
   margin: auto;
   border: 1px solid black;
@@ -67,8 +64,9 @@ export default {
 }
 .tableFlex {
   display: flex;
-  width: 95vw;
-  margin: 10px;
+  width: 100%;
+  font-size: 10px;
+  gap: 5px;
 }
 th,
 td {

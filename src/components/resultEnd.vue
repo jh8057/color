@@ -23,7 +23,10 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
+* {
+  padding: 0;
+}
 .tableData {
   margin: auto;
 }

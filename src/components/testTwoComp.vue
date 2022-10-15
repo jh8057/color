@@ -13,7 +13,6 @@
               :src="`/colorProject/total/${i}.png`"
               class="imgList__item--img"
             />
-            [{{ i }}]
             <div class="selectSection__item">
               <label :for="`select${index + 1}`">{{ index + 1 }}</label>
               <input
