@@ -10,10 +10,10 @@
     <order-four-comp v-if="step === 6" />
     <test-two-comp v-if="step === 7" />
 
-    <button class="nextButton" @click="nextStep" v-if="showNextButton">
+    <button v-if="showNextButton" class="nextButton" @click="nextStep">
       다음
     </button>
-    <button @click="reset">reset</button>
+    <button v-if="showResetButton" @click="reset">reset</button>
   </div>
 </template>
 
@@ -51,6 +51,8 @@ export default defineComponent({
       () => step.value !== 1 && step.value !== 4 && step.value !== 7
     );
 
+    const showResetButton = computed(() => step.value == 4 || step.value !== 7);
+
     const nextStep = () => {
       store.commit("upStep");
     };
@@ -60,7 +62,7 @@ export default defineComponent({
       location.reload();
     };
 
-    return { step, nextStep, showNextButton, reset };
+    return { step, nextStep, showNextButton, showResetButton, reset };
   },
 });
 </script>
