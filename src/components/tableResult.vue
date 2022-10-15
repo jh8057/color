@@ -7,16 +7,16 @@
           <tr>
             <th scope="col">순서</th>
             <th scope="col">자극물</th>
-            <th scope="col">선택정답</th>
             <th scope="col">실제정답</th>
+            <th scope="col">선택정답</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(r, index) in result1" :key="r.num">
             <td>{{ index + 1 }}</td>
             <td>{{ r.num }}</td>
-            <td>{{ r.answer }}</td>
             <td>{{ r.realAnswer }}</td>
+            <td>{{ r.answer }}</td>
           </tr>
         </tbody>
       </table>
