@@ -10,7 +10,7 @@
       성별 :
       <input type="radio" id="man" value="남" v-model="gender" />
       <label for="man">남</label>
-
+      &nbsp;
       <input type="radio" id="women" value="여" v-model="gender" />
       <label for="women">여</label>
     </p>
