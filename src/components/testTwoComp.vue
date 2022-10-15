@@ -31,20 +31,16 @@
         <img src="/center.png" class="centerPoint__img" />
       </div>
     </main>
-    <article v-show="end" class="QuestionEnd">
-      <div>
-        설문이 종료되었습니다.<br />
-        결과물을 담당자에게 보내주세요!<br />
-        귀한 시간 내주셔서 감사합니다.<br />
+    <article v-show="end" class="Question">
+      <div class="Question__color">
+        <img src="/colorProject/colorTest/3.jpg" class="imgList__item--img" />
+        <input v-model="colorInput" />&nbsp;
+        <button @click="goNextStep" style="font-size: 15px; padding: 10px">
+          다음
+        </button>
       </div>
-      <button @click="goNextStep" style="font-size: 15px; padding: 10px">
-        결과보기</button
-      ><br />
     </article>
   </div>
-  <!-- <div style="display: absolute">
-    <button @click="resetpop">해당 테스트만 다시하기</button>
-  </div> -->
 </template>
 
 <script lang="ts">
@@ -54,6 +50,7 @@ import type { finalResultTwo } from "../types/types";
 export default defineComponent({
   setup() {
     const selected = ref("");
+    const colorInput = ref("");
     const question = ref(false);
     const showCenter = computed(() => {
       return !question.value && !end.value;
@@ -110,12 +107,9 @@ export default defineComponent({
     const saveFinal = () => {
       store.commit("setFinalResultTwo", finalResultTwo);
     };
-    const resetpop = () => {
-      store.commit("resetpop");
-      location.reload();
-    };
 
     const goNextStep = () => {
+      store.commit("setColorOne", colorInput.value);
       store.commit("setStep", 8);
     };
 
@@ -146,7 +140,6 @@ export default defineComponent({
     return {
       question,
       showCenter,
-      resetpop,
       Arr,
       selected,
       ArrShffuled,
@@ -154,6 +147,7 @@ export default defineComponent({
       goNextStep,
       finData,
       finalResultTwo,
+      colorInput,
     };
   },
 });
@@ -200,5 +194,11 @@ export default defineComponent({
 .imgList__item--img {
   width: 100%;
   height: 100%;
+}
+
+.Question__color {
+  margin: auto;
+  width: 40vw;
+  height: 40vw;
 }
 </style>

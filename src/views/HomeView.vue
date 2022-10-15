@@ -9,7 +9,8 @@
     <order-three-comp v-if="step === 5" />
     <order-four-comp v-if="step === 6" />
     <test-two-comp v-if="step === 7" />
-    <result-end v-if="step === 8" />
+    <color-test v-if="step === 8" />
+    <result-end v-if="step === 9" />
 
     <button v-if="showNextButton" class="nextButton" @click="nextStep">
       다음
@@ -32,6 +33,7 @@ import OrderThreeComp from "../components/orderThreeComp.vue";
 import OrderFourComp from "../components/orderFourComp.vue";
 import TestTwoComp from "../components/testTwoComp.vue";
 import ResultEnd from "../components/resultEnd.vue";
+import ColorTest from "../components/colorTest.vue";
 
 export default defineComponent({
   components: {
@@ -45,6 +47,7 @@ export default defineComponent({
     OrderFourComp,
     TestTwoComp,
     ResultEnd,
+    ColorTest,
   },
   setup() {
     const store = useStore();
@@ -58,7 +61,7 @@ export default defineComponent({
         step.value !== 8
     );
 
-    const showResetButton = computed(() => step.value == 5 || step.value == 8);
+    const showResetButton = computed(() => step.value == 5 || step.value == 9);
 
     const nextStep = () => {
       store.commit("upStep");

@@ -18,6 +18,8 @@ export const store = createStore({
     answerArr: answerJson.answer,
     selectedArr: [] as Array<number>,
     selectedArrAnswer: 0,
+    colorOne: "",
+    colorTwo: "",
   },
   getters: {
     getGender(state) {
@@ -82,13 +84,6 @@ export const store = createStore({
       //삭제
       state.answerList.splice(random, 1);
     },
-
-    resetpop(state) {
-      state.totalArr = answerJson.total;
-      state.answerArr = answerJson.answer;
-      state.selectedArr = [] as Array<number>;
-      state.testTwoEnd = false;
-    },
     popArr(state) {
       state.selectedArr = [];
       for (let i = 0; i < 3; i++) {
@@ -107,6 +102,14 @@ export const store = createStore({
     },
     setTestTwoEnd(state, value) {
       state.testTwoEnd = value;
+    },
+    setColorOne(state, value) {
+      console.log("corlorOne");
+      state.colorOne = value;
+    },
+    setColorTwo(state, value) {
+      console.log("corlortwo");
+      state.colorTwo = value;
     },
   },
   actions: {},
