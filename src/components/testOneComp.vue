@@ -3,7 +3,7 @@
     <main v-show="question" class="Question">
       <div class="Question__center">
         <h3>색상은 {{ one }}인가요 {{ two }}인가요?</h3>
-        <img :src="`/colorProject/answer/${num}.png`" />
+        <img :src="`/colorProject/answer/${num}.png`" class="Question__img" />
         <section class="selectSection">
           <div class="selectSection__item">
             <label for="select1">{{ one }}</label>
@@ -180,7 +180,7 @@ export default defineComponent({
 <style>
 .testOneComp {
   margin: auto;
-  width: 80vh;
+  width: 80vw;
   height: 80vh;
   text-align: center;
   align-content: center;
@@ -201,9 +201,9 @@ export default defineComponent({
   gap: 20px;
 }
 
-img {
-  width: 45vh;
-  height: 45vh;
+.Question__img {
+  width: 40vh;
+  height: 40vh;
 }
 .centerPoint {
   width: 100%;
@@ -221,7 +221,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .centerPoint__img {

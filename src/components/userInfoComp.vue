@@ -1,8 +1,9 @@
 <template>
   <div class="userInfoComp">
+    <h2>당신의 정보를 알려주세요.</h2>
     <p>
       나이 :
-      <input class="unerBar" v-model="age" maxlength="3" style="width: 23px" />
+      <input v-model="age" maxlength="3" style="width: 23px" />
     </p>
     <br />
     <p>
@@ -16,12 +17,7 @@
     <br />
     <p>
       닉네임 :
-      <input
-        class="unerBar"
-        v-model="nickName"
-        maxlength="100"
-        style="width: 200px"
-      />
+      <input v-model="nickName" maxlength="100" style="width: 200px" />
     </p>
 
     <button class="nextButton" @click.prevent="saveData">다음</button>
