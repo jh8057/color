@@ -9,7 +9,7 @@
   <br />
   <hr />
   <div class="userInfo">
-    <p>테스트 조건 : shallow-shape</p>
+    <p>테스트 조건 : shallow-color</p>
     <p>
       사용자 정보 : {{ userInfo.nickName }} | {{ userInfo.gender }} |
       {{ userInfo.age }}세 | {{ colorOne }} | {{ colorTwo }}
