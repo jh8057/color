@@ -58,7 +58,8 @@ export default defineComponent({
         step.value !== 1 &&
         step.value !== 4 &&
         step.value !== 7 &&
-        step.value !== 8
+        step.value !== 8 &&
+        step.value !== 9
     );
 
     const showResetButton = computed(() => step.value == 5 || step.value == 9);
