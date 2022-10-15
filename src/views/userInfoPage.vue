@@ -90,9 +90,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-/* .introduction {
-    text-align: center;
-    align-content: center;
-  } */
-</style>
+<style></style>

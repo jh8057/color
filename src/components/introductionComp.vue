@@ -28,8 +28,7 @@ export default defineComponent({});
 </script>
 
 <style>
-/* .introduction {
-  text-align: center;
-  align-content: center;
-} */
+.introduction {
+  width: 100%;
+}
 </style>
