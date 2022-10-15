@@ -9,11 +9,12 @@
     <order-three-comp v-if="step === 5" />
     <order-four-comp v-if="step === 6" />
     <test-two-comp v-if="step === 7" />
+    <result-end v-if="step === 8" />
 
     <button v-if="showNextButton" class="nextButton" @click="nextStep">
       다음
     </button>
-    <button v-if="showResetButton" @click="reset">reset</button>
+    <button v-if="showResetButton" @click="reset">처음으로</button>
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import UserInfoComp from "@/components/userInfoComp.vue";
 import OrderThreeComp from "../components/orderThreeComp.vue";
 import OrderFourComp from "../components/orderFourComp.vue";
 import TestTwoComp from "../components/testTwoComp.vue";
+import ResultEnd from "../components/resultEnd.vue";
 
 export default defineComponent({
   components: {
@@ -42,16 +44,23 @@ export default defineComponent({
     OrderThreeComp,
     OrderFourComp,
     TestTwoComp,
+    ResultEnd,
   },
   setup() {
     const store = useStore();
     const step = computed(() => store.state.step);
 
     const showNextButton = computed(
-      () => step.value !== 1 && step.value !== 4 && step.value !== 7
+      () =>
+        step.value !== 1 &&
+        step.value !== 4 &&
+        step.value !== 7 &&
+        step.value !== 8
     );
 
-    const showResetButton = computed(() => step.value == 4 || step.value == 7);
+    const showResetButton = computed(
+      () => step.value == 4 || step.value == 7 || step.value == 8
+    );
 
     const nextStep = () => {
       store.commit("upStep");

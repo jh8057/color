@@ -13,6 +13,7 @@ export const store = createStore({
     finalResult: [],
     finalResultTwo: [],
     testOneEnd: false,
+    testTwoEnd: false,
     totalArr: answerJson.total,
     answerArr: answerJson.answer,
     selectedArr: [] as Array<number>,
@@ -86,6 +87,7 @@ export const store = createStore({
       state.totalArr = answerJson.total;
       state.answerArr = answerJson.answer;
       state.selectedArr = [] as Array<number>;
+      state.testTwoEnd = false;
     },
     popArr(state) {
       console.log("pop");
@@ -103,6 +105,9 @@ export const store = createStore({
     },
     setTestOneEnd(state, value) {
       state.testOneEnd = value;
+    },
+    setTestTwoEnd(state, value) {
+      state.testTwoEnd = value;
     },
   },
   actions: {},
