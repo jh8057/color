@@ -4,4 +4,11 @@ interface finalResult {
   realAnswer: string;
 }
 
-export type { finalResult };
+interface finalResultTwo {
+  totalArr: Array<number>;
+  selected: string | number;
+  answer: number;
+  extra: Array<number>;
+}
+
+export type { finalResult, finalResultTwo };

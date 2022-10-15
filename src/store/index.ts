@@ -11,10 +11,12 @@ export const store = createStore({
     answerList: answerJson.answerList,
     selectedAnswer: {},
     finalResult: [],
+    finalResultTwo: [],
     testOneEnd: false,
     totalArr: answerJson.total,
     answerArr: answerJson.answer,
     selectedArr: [] as Array<number>,
+    selectedArrAnswer: 0,
   },
   getters: {
     getGender(state) {
@@ -51,6 +53,9 @@ export const store = createStore({
     },
     setFinalResult(state, value) {
       state.finalResult = value;
+    },
+    setFinalResultTwo(state, value) {
+      state.finalResultTwo = value;
     },
     resetState(state) {
       state.age = "";
@@ -93,6 +98,7 @@ export const store = createStore({
 
       let random = Math.floor(Math.random() * state.answerArr.length);
       state.selectedArr.push(state.answerArr[random]);
+      state.selectedArrAnswer = state.answerArr[random];
       state.answerArr.splice(random, 1);
     },
     setTestOneEnd(state, value) {
