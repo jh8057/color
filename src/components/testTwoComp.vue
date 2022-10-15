@@ -88,6 +88,7 @@ export default defineComponent({
         extra,
       };
       finalResultTwo.push(result);
+      console.log("result", result);
       selected.value = "";
       saveFinal();
 
