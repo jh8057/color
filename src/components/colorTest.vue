@@ -2,7 +2,7 @@
   <div class="testTwoComp">
     <article v-if="init" class="Question">
       <div class="Question__color">
-        <img src="/colorTest/12.jpg" class="imgList__item--img" />
+        <img src="@/assets/colorTest/12.jpg" class="imgList__item--img" />
         <input v-model="colorInput" />&nbsp;
         <button @click="showEnd" style="font-size: 15px; padding: 10px">
           다음
