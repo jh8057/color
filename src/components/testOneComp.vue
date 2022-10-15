@@ -104,9 +104,12 @@ export default defineComponent({
       store.commit("setStep", 5);
     };
 
-    // const imgSrc = computed(() => {
-    //   return process.env.PUBLIC_URL + `/answer/${num}.png`;
-    // });
+    onMounted(() => {
+      // 재시작 방지
+      if (finData.value.length > 0) finalResult.push(...finData.value);
+      console.log("final", finalResult);
+    });
+
     return {
       selected,
       question,
@@ -131,9 +134,6 @@ export default defineComponent({
     };
   },
   mounted() {
-    // 재시작 방지 --미완
-    if (this.finData.length > 0) this.finalResult = this.finData;
-
     // 처음에 조준점으로 시작
     // 검색 끝난 뒤 다시 실행하면 안됨
     if (this.len > 0) this.showCenterPoint();

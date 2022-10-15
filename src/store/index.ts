@@ -90,7 +90,6 @@ export const store = createStore({
       state.testTwoEnd = false;
     },
     popArr(state) {
-      console.log("pop");
       state.selectedArr = [];
       for (let i = 0; i < 3; i++) {
         let random = Math.floor(Math.random() * state.totalArr.length);

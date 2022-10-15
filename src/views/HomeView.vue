@@ -58,9 +58,7 @@ export default defineComponent({
         step.value !== 8
     );
 
-    const showResetButton = computed(
-      () => step.value == 4 || step.value == 7 || step.value == 8
-    );
+    const showResetButton = computed(() => step.value == 5 || step.value == 8);
 
     const nextStep = () => {
       store.commit("upStep");

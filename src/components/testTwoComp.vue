@@ -42,9 +42,9 @@
       ><br />
     </article>
   </div>
-  <div style="display: absolute">
+  <!-- <div style="display: absolute">
     <button @click="resetpop">해당 테스트만 다시하기</button>
-  </div>
+  </div> -->
 </template>
 
 <script lang="ts">
@@ -65,6 +65,7 @@ export default defineComponent({
     const ArrShffuled = computed(() => shuffle(store.state.selectedArr));
     const finalResultTwo: Array<finalResultTwo> = [];
     const end = computed(() => store.state.testTwoEnd);
+    const finData = computed(() => store.state.finalResultTwo);
 
     const showCenterPoint = () => {
       question.value = false;
@@ -138,6 +139,10 @@ export default defineComponent({
     console.log("-----");
     showCenterPoint();
 
+    onMounted(() => {
+      if (finData.value.length > 0) finalResultTwo.push(...finData.value);
+    });
+
     return {
       question,
       showCenter,
@@ -147,6 +152,8 @@ export default defineComponent({
       ArrShffuled,
       end,
       goNextStep,
+      finData,
+      finalResultTwo,
     };
   },
 });
