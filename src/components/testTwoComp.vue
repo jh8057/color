@@ -1,7 +1,7 @@
 <template>
   <div class="testTwoComp">
-    <h3>보았던 자극물을 하나 선택해주세요.</h3>
     <main v-show="question" class="Question">
+      <h3>보았던 자극물을 하나 선택해주세요.</h3>
       <div class="QuestionTwo__center">
         <div class="imgList">
           <div
@@ -32,6 +32,16 @@
         <img src="/center.png" class="centerPoint__img" />
       </div>
     </main>
+    <article v-show="end" class="QuestionEnd">
+      <div>
+        설문이 종료되었습니다.<br />
+        결과물을 담당자에게 보내주세요!<br />
+        귀한 시간 내주셔서 감사합니다.<br />
+      </div>
+      <button @click="goNextStep" style="font-size: 15px; padding: 10px">
+        결과보기</button
+      ><br />
+    </article>
   </div>
   <div style="display: absolute">
     {{ Arr }}| {{ ArrShffuled }} <button @click="resetpop">pop</button>
@@ -47,7 +57,7 @@ export default defineComponent({
     const selected = ref("");
     const question = ref(false);
     const showCenter = computed(() => {
-      return !question.value;
+      return !question.value && !end.value;
     });
     const store = useStore();
     const len = computed(() => store.getters.getTotalArrLength);
@@ -55,28 +65,23 @@ export default defineComponent({
     const ArrAnswer = computed(() => store.state.selectedArrAnswer);
     const ArrShffuled = computed(() => shuffle(store.state.selectedArr));
     const finalResultTwo: Array<finalResultTwo> = [];
+    const end = computed(() => store.state.testTwoEnd);
 
     const showCenterPoint = () => {
-      console.log("--showCenter--");
       question.value = false;
       //question 다음꺼를 여기서 미리 작업 시작
       if (len.value > 0) {
         // 4개짜리 배열 받기
         store.commit("popArr");
-        console.log("====");
-        console.log(Arr.value);
         setTimeout(showQuestion, 1000);
       }
     };
 
     const showQuestion = () => {
-      console.log("showQuestion");
       question.value = true;
       setTimeout(saveResult, 5000);
     };
     const saveResult = () => {
-      console.log("SAVED");
-
       let extraIdx = ArrShffuled.value.indexOf(ArrAnswer.value);
       let extra = ArrShffuled.value.slice();
       extra.splice(extraIdx, 1);
@@ -87,10 +92,18 @@ export default defineComponent({
         answer: ArrAnswer.value,
         extra,
       };
+
       finalResultTwo.push(result);
       console.log("result", result);
       selected.value = "";
-      saveFinal();
+
+      if (len.value > 0) {
+        saveFinal();
+      } else {
+        console.log("end");
+        question.value = false;
+        store.commit("setTestTwoEnd", true);
+      }
 
       showCenterPoint();
     };
@@ -99,6 +112,10 @@ export default defineComponent({
     };
     const resetpop = () => {
       store.commit("resetpop");
+    };
+
+    const goNextStep = () => {
+      store.commit("setStep", 8);
     };
 
     /**
@@ -121,7 +138,16 @@ export default defineComponent({
     console.log("-----");
     showCenterPoint();
 
-    return { question, showCenter, resetpop, Arr, selected, ArrShffuled };
+    return {
+      question,
+      showCenter,
+      resetpop,
+      Arr,
+      selected,
+      ArrShffuled,
+      end,
+      goNextStep,
+    };
   },
 });
 </script>

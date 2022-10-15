@@ -32,13 +32,13 @@
           다음</button
         ><br />
       </div>
-      <div>
+      <!-- <div>
         <button @click="resetList">다시 한번 - 테스트용</button><br />
         <button @click="reset">페이지 처음으로 - 테스트용</button><br />
         <button @click="showResult">
           결과보기(아래) - 2번 테스트 끝난 지점으로 이동
         </button>
-      </div>
+      </div> -->
     </article>
 
     <article v-if="showFin" class="result" id="resultElement">
@@ -191,6 +191,15 @@ export default defineComponent({
   width: 100%;
   height: 100%;
 }
+.QuestionEnd {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 
 img {
   width: 45vh;
@@ -213,15 +222,6 @@ img {
   align-items: center;
   flex-direction: column;
   gap: 20px;
-}
-
-.QuestionEnd {
-  margin-top: 30vh;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
 }
 
 .centerPoint__img {
