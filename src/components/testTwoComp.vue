@@ -161,6 +161,7 @@ export default defineComponent({
 <style>
 .testTwoComp {
   margin: auto;
+  padding-top: 1rem;
   width: 80vw;
   height: 80vh;
   text-align: center;
