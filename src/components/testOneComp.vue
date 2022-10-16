@@ -202,8 +202,8 @@ export default defineComponent({
 }
 
 .Question__img {
-  width: 40vh;
-  height: 40vh;
+  width: 30vh;
+  height: 30vh;
 }
 .centerPoint {
   width: 100%;
