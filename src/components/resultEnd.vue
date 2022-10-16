@@ -43,7 +43,7 @@ export default defineComponent({
     const colorInputOne = colorOne.value.input
     const colorTwo = computed(() => store.state.colorTwo);
     const colorAnswerTwo = colorTwo.value.answer
-    const colorInputTwo = colorTwo.value.answer
+    const colorInputTwo = colorTwo.value.input
 
     return {
       result1,
