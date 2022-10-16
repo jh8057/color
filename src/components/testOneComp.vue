@@ -188,8 +188,12 @@ export default defineComponent({
   align-content: center;
 }
 .breakTime,
-.Question,
 .QuestionEnd {
+  width: 100%;
+  height: 100%;
+}
+.Question{
+  margin-top: 20px;
   width: 100%;
   height: 100%;
 }
