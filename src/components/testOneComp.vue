@@ -25,7 +25,7 @@
     <article v-show="end" class="QuestionEnd">
       <div>
         창을 종료하지 말고 지시가 있기 전까지<br />
-        <span class="redfont">대기하여 주시기 바랍니다.<span><br />
+        <span class="redfont">대기하여 주시기 바랍니다.</span><br />
       </div>
       <div style="margin: 30px">
         <button @click="goTestTwo" style="font-size: 15px; padding: 10px">
