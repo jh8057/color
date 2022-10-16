@@ -2,12 +2,20 @@
   <div class="testTwoComp">
     <article v-if="init" class="Question">
       <div class="Question__color">
-        <p>이시하라 색맹 테스트입니다.<br /> 보이는 숫자를 적어주세요.</p>
-        <img :src="`/colorProject/colorTest/${colorNum}.jpg`" class="imgList__item--img" />
-        <input v-model="colorInput" />&nbsp;
-        <button @click="showEnd" style="font-size: 15px; padding: 10px">
-          다음
-        </button>
+        <p>
+          이시하라 색맹 테스트입니다.<br />
+          보이는 숫자를 적어주세요.
+        </p>
+        <img
+          :src="`/colorProject/colorTest/${colorNum}.jpg`"
+          class="colorTestImg"
+        />
+        <div>
+          <input v-model="colorInput" />&nbsp;
+          <button @click="showEnd" style="font-size: 15px; padding: 10px">
+            다음
+          </button>
+        </div>
       </div>
     </article>
     <article v-else class="QuestionEnd">
@@ -24,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref,computed } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
   setup() {
@@ -33,22 +41,31 @@ export default defineComponent({
     const store = useStore();
 
     const showEnd = () => {
-      store.commit("setColorTwo",  { answer : colorNum,input :colorInput.value});
+      store.commit("setColorTwo", {
+        answer: colorNum,
+        input: colorInput.value,
+      });
       init.value = false;
     };
     const goNextStep = () => {
       store.commit("setStep", 9);
     };
 
-    const colorArr = [2,3,5,6,7,8,12,16,29,42,45,74,97]
-    const colorNum = computed(()=> colorArr[Math.floor(Math.random()*colorArr.length)])
+    const colorOne = computed(() => store.state.colorOne);
+    let colorArr = [2, 3, 5, 6, 7, 8, 12, 16, 29, 42, 45, 74, 97];
+    const colorIdx = colorArr.indexOf(colorOne.value.answer);
+    colorArr.splice(colorIdx, 1);
+
+    const colorNum = computed(
+      () => colorArr[Math.floor(Math.random() * colorArr.length)]
+    );
 
     return {
       colorInput,
       goNextStep,
       showEnd,
       init,
-      colorNum
+      colorNum,
     };
   },
 });

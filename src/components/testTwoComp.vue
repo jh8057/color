@@ -27,18 +27,26 @@
       </div>
     </main>
     <main v-show="showCenter" class="breakTime">
-      <div class="centerPointTwo">
+      <div class="centerPointTwo tm25">
         <img src="/center.png" class="centerPoint__img" />
       </div>
     </main>
     <article v-show="end" class="Question">
       <div class="Question__color">
-        <p>이시하라 색맹 테스트입니다.<br /> 보이는 숫자를 적어주세요.</p>
-        <img :src="`/colorProject/colorTest/${colorNum}.jpg`" class="imgList__item--img" />
-        <input v-model="colorInput" />&nbsp;
-        <button @click="goNextStep" style="font-size: 15px; padding: 10px">
-          다음
-        </button>
+        <div>
+          이시하라 색맹 테스트입니다.<br />
+          보이는 숫자를 적어주세요.
+        </div>
+        <img
+          :src="`/colorProject/colorTest/${colorNum}.jpg`"
+          class="colorTestImg"
+        />
+        <div>
+          <input v-model="colorInput" />&nbsp;
+          <button @click="goNextStep" style="font-size: 15px; padding: 10px">
+            다음
+          </button>
+        </div>
       </div>
     </article>
   </div>
@@ -65,8 +73,10 @@ export default defineComponent({
     const end = computed(() => store.state.testTwoEnd);
     const finData = computed(() => store.state.finalResultTwo);
 
-    const colorArr = [2,3,5,6,7,8,12,16,29,42,45,74,97]
-    const colorNum = computed(()=> colorArr[Math.floor(Math.random()*colorArr.length)])
+    const colorArr = [2, 3, 5, 6, 7, 8, 12, 16, 29, 42, 45, 74, 97];
+    const colorNum = computed(
+      () => colorArr[Math.floor(Math.random() * colorArr.length)]
+    );
 
     const showCenterPoint = () => {
       question.value = false;
@@ -95,13 +105,12 @@ export default defineComponent({
       };
 
       finalResultTwo.push(result);
-      console.log("result", result);
+      // console.log("result", result);
       selected.value = "";
 
       if (len.value > 0) {
         saveFinal();
       } else {
-        console.log("end");
         question.value = false;
         store.commit("setTestTwoEnd", true);
       }
@@ -113,7 +122,10 @@ export default defineComponent({
     };
 
     const goNextStep = () => {
-      store.commit("setColorOne", { answer : colorNum,input :colorInput.value});
+      store.commit("setColorOne", {
+        answer: colorNum,
+        input: colorInput.value,
+      });
       store.commit("setStep", 8);
     };
 
@@ -134,7 +146,6 @@ export default defineComponent({
     };
 
     //걍 시작
-    console.log("-----");
     showCenterPoint();
 
     onMounted(() => {
@@ -152,7 +163,7 @@ export default defineComponent({
       finData,
       finalResultTwo,
       colorInput,
-      colorNum
+      colorNum,
     };
   },
 });
@@ -200,10 +211,17 @@ export default defineComponent({
   width: 100%;
   height: 100%;
 }
-
 .Question__color {
   margin: auto;
-  width: 40vw;
-  height: 40vw;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+}
+.tm25 {
+  margin-top: 25px;
+}
+.colorTestImg {
+  width: 40vh;
+  height: 40vh;
 }
 </style>

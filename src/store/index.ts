@@ -72,7 +72,6 @@ export const store = createStore({
     },
     resetList(state) {
       state.answerList = answerJson.answerList;
-      console.log("a", answerJson.answerList);
       state.selectedAnswer = {};
       state.finalResult = [];
       state.testOneEnd = false;
@@ -80,7 +79,6 @@ export const store = createStore({
     popAnswer(state) {
       let random = Math.floor(Math.random() * state.answerList.length);
       state.selectedAnswer = state.answerList[random];
-      console.log("selected", state.answerList[random]);
       //삭제
       state.answerList.splice(random, 1);
     },
@@ -104,11 +102,9 @@ export const store = createStore({
       state.testTwoEnd = value;
     },
     setColorOne(state, value) {
-      console.log("corlorOne");
       state.colorOne = value;
     },
     setColorTwo(state, value) {
-      console.log("corlortwo");
       state.colorTwo = value;
     },
   },
