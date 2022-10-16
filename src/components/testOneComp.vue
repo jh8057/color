@@ -25,7 +25,7 @@
     <article v-show="end" class="QuestionEnd">
       <div>
         창을 종료하지 말고 지시가 있기 전까지<br />
-        대기하여 주시기 바랍니다.<br />
+        <span class="redfont">대기하여 주시기 바랍니다.<span><br />
       </div>
       <div style="margin: 30px">
         <button @click="goTestTwo" style="font-size: 15px; padding: 10px">
@@ -41,10 +41,10 @@
       </div> -->
     </article>
 
-    <article v-if="showFin" class="result" id="resultElement">
+    <!-- <article v-if="showFin" class="result" id="resultElement">
       <p style="font-weight: bold">전문이 보이도록 세로모드로 캡쳐해주세요.</p>
       <table-result v-model:result="finalResult" :key="finData[0]" />
-    </article>
+    </article> -->
   </div>
 </template>
 
@@ -239,5 +239,9 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+.redfont {
+  color : red;
 }
 </style>

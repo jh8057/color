@@ -33,6 +33,7 @@
     </main>
     <article v-show="end" class="Question">
       <div class="Question__color">
+        <p>이시하라 색맹 테스트입니다.<br /> 보이는 숫자를 적어주세요.</p>
         <img :src="`/colorProject/colorTest/${colorNum}.jpg`" class="imgList__item--img" />
         <input v-model="colorInput" />&nbsp;
         <button @click="goNextStep" style="font-size: 15px; padding: 10px">
