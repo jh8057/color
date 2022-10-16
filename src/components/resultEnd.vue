@@ -12,7 +12,7 @@
     <p>테스트 조건 : shallow-color</p>
     <p>
       사용자 정보 : {{ userInfo.nickName }} | {{ userInfo.gender }} |
-      {{ userInfo.age }}세 | {{ colorOne }} | {{ colorTwo }}
+      {{ userInfo.age }}세 | {{ colorAnswerOne }} : {{colorInputOne}} | {{ colorAnswerTwo}} : {{colorInputTwo}}
     </p>
   </div>
   <table-result :result1="result1" :result2="result2" />
@@ -39,14 +39,20 @@ export default defineComponent({
       };
     });
     const colorOne = computed(() => store.state.colorOne);
+    const colorAnswerOne = colorOne.value.answer
+    const colorInputOne = colorOne.value.input
     const colorTwo = computed(() => store.state.colorTwo);
+    const colorAnswerTwo = colorTwo.value.answer
+    const colorInputTwo = colorTwo.value.answer
 
     return {
       result1,
       result2,
       userInfo,
-      colorOne,
-      colorTwo,
+      colorAnswerOne,
+      colorInputOne,
+      colorAnswerTwo,
+      colorInputTwo
     };
   },
 });

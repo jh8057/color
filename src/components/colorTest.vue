@@ -2,7 +2,7 @@
   <div class="testTwoComp">
     <article v-if="init" class="Question">
       <div class="Question__color">
-        <img src="@/assets/colorTest/12.jpg" class="imgList__item--img" />
+        <img :src="`/colorProject/colorTest/${colorNum}.jpg`" class="imgList__item--img" />
         <input v-model="colorInput" />&nbsp;
         <button @click="showEnd" style="font-size: 15px; padding: 10px">
           다음
@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref,computed } from "vue";
 import { useStore } from "vuex";
 export default defineComponent({
   setup() {
@@ -32,17 +32,22 @@ export default defineComponent({
     const store = useStore();
 
     const showEnd = () => {
-      store.commit("setColorTwo", colorInput.value);
+      store.commit("setColorTwo",  { answer : colorNum,input :colorInput.value});
       init.value = false;
     };
     const goNextStep = () => {
       store.commit("setStep", 9);
     };
+
+    const colorArr = [2,3,5,6,7,8,12,16,29,42,45,74,97]
+    const colorNum = computed(()=> colorArr[Math.floor(Math.random()*colorArr.length)])
+
     return {
       colorInput,
       goNextStep,
       showEnd,
       init,
+      colorNum
     };
   },
 });
