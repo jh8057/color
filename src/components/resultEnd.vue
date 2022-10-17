@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>
+    <p class="redfont">
       *휴대전화 화면을 세로 모드로 변경 한 후 전체 데이터가 나오도록 캡쳐하여
       담당자에게 전송부탁드립니다!
     </p>
@@ -12,7 +12,8 @@
     <p>테스트 조건 : shallow-color</p>
     <p>
       사용자 정보 : {{ userInfo.nickName }} | {{ userInfo.gender }} |
-      {{ userInfo.age }}세 | {{ colorAnswerOne }} : {{colorInputOne}} | {{ colorAnswerTwo}} : {{colorInputTwo}}
+      {{ userInfo.age }}세 | {{ colorAnswerOne }} : {{ colorInputOne }} |
+      {{ colorAnswerTwo }} : {{ colorInputTwo }}
     </p>
   </div>
   <table-result :result1="result1" :result2="result2" />
@@ -39,11 +40,11 @@ export default defineComponent({
       };
     });
     const colorOne = computed(() => store.state.colorOne);
-    const colorAnswerOne = colorOne.value.answer
-    const colorInputOne = colorOne.value.input
+    const colorAnswerOne = colorOne.value.answer;
+    const colorInputOne = colorOne.value.input;
     const colorTwo = computed(() => store.state.colorTwo);
-    const colorAnswerTwo = colorTwo.value.answer
-    const colorInputTwo = colorTwo.value.input
+    const colorAnswerTwo = colorTwo.value.answer;
+    const colorInputTwo = colorTwo.value.input;
 
     return {
       result1,
@@ -52,7 +53,7 @@ export default defineComponent({
       colorAnswerOne,
       colorInputOne,
       colorAnswerTwo,
-      colorInputTwo
+      colorInputTwo,
     };
   },
 });
