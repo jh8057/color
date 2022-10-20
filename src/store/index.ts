@@ -1,8 +1,8 @@
 import { createStore } from "vuex";
-import createPersistedState from "vuex-persistedstate";
+// import createPersistedState from "vuex-persistedstate";
 import answerJson from "@/data/answer.json";
 export const store = createStore({
-  plugins: [createPersistedState()],
+  // plugins: [createPersistedState()],
   state: {
     step: 0,
     gender: "",
