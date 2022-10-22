@@ -27,7 +27,8 @@
         1차 테스트 종료되었습니다.<br />
         2차 테스트를 진행해주세요.
       </div>
-      <div style="margin: 10px">
+      <br />
+      <div>
         <button @click="goTestTwo" style="font-size: 15px; padding: 25px">
           다음</button
         ><br />
